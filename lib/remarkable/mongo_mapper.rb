@@ -24,7 +24,8 @@ end
 
 # Include Remarkable MongoMapper matcher in appropriate ExampleGroup
 if defined?(Spec::Rails)
-  Remarkable.include_matchers!(Remarkable::MongoMapper, Spec::Rails::Example::ModelExampleGroup)
+  require File.join(dir, '..', 'spec', 'rails', 'example', 'mongo_mapper_example_group')
+  Remarkable.include_matchers!(Remarkable::MongoMapper, Spec::Rails::Example::MongoMapperExampleGroup)
 else
   Remarkable.include_matchers!(Remarkable::MongoMapper, Spec::Example::ExampleGroup)
 end
